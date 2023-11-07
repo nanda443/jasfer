@@ -28,3 +28,7 @@ Route::get('/Produk', function () {
 Route::get('/Kamera', function () {
     return view('kamera');
 });
+
+Route::get('/Fotografer', function () {
+    return view('fotografer');
+});

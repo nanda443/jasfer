@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-<div class="pagetitle">
+<div class="pagetitle mb-0">
     <h1>Fotografer</h1>
 </div>
   <!-- End Page Title -->
@@ -39,8 +39,8 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-      <div class="col">
+    </div>
+    <div class="col">
         <div class="card h-100">
           <img src="{{ asset('template/assets/img/fotografer/kemon.jpg') }}" class="card-img-top rounded" alt="...">
           <div class="card-body">
@@ -54,8 +54,8 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-      <div class="col">
+    </div>
+    <div class="col">
         <div class="card h-100">
           <img src="{{ asset('template/assets/img/fotografer/rakha.jpeg') }}" class="card-img-top rounded" alt="...">
           <div class="card-body">
@@ -69,8 +69,8 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-      <div class="col">
+    </div>
+    <div class="col">
         <div class="card h-100">
           <img src="{{ asset('template/assets/img/fotografer/gupong.jpg') }}" class="card-img-top rounded" alt="...">
           <div class="card-body">
@@ -84,8 +84,8 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-      <div class="col">
+    </div>
+    <div class="col">
         <div class="card h-100">
           <img src="{{ asset('template/assets/img/fotografer/lukman.jpg') }}" class="card-img-top rounded" alt="...">
           <div class="card-body">
@@ -99,8 +99,8 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-      <div class="col">
+    </div>
+    <div class="col">
         <div class="card h-100">
           <img src="{{ asset('template/assets/img/messages-3.jpg') }}" class="card-img-top rounded" alt="...">
           <div class="card-body">
@@ -114,6 +114,6 @@
             <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan Sekarang</span></button>
           </div>
         </div>
-      </div>
-  </div>
+    </div>
+</div>
 @endsection

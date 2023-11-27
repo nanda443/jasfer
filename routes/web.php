@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FotograferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,6 @@ Route::get('/Kamera', function () {
     return view('kamera');
 });
 
-Route::get('/Fotografer', function () {
-    return view('fotografer');
-});
+Route::get('/Fotografer', [FotograferController::class, 'index']);
+
+Route::get('fotografer/{fotografer}', [FotograferController::class, 'show']);

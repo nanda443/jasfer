@@ -15,4 +15,9 @@ class Provider extends Model
     {
         return $this->hasMany(Fotografer::class);
     }
+
+    public function kamera()
+    {
+        return $this->hasMany(Kamera::class);
+    }
 }

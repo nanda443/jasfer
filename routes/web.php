@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FotograferController;
 use App\Http\Controllers\KameraController;
 use App\Http\Controllers\ProdukController;
@@ -20,9 +21,7 @@ Route::get('/', function () {
     return view('beranda');
 });
 
-Route::get('/Beranda', function () {
-    return view('beranda');
-});
+Route::get('/Beranda', [BerandaController::class,'index']);
 Route::get('/Produk', [ProdukController::class, 'index']);
 
 Route::get('/Kamera', [KameraController::class, 'index']);

@@ -22,7 +22,7 @@ class KameraFactory extends Factory
             'provider_id' => fake()->numberBetween(1, 5),
             'deskripsi' => fake()->sentence(10),
             'harga' => fake()->randomNumber(6, true),
-            'foto' => 'https://source.unsplash.com/500x500/s?Cameras'
+            'foto' => 'https://source.unsplash.com/500x500/?Camera'
         ];
     }
 }

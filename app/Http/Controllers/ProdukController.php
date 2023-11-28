@@ -15,7 +15,7 @@ class ProdukController extends Controller
     {
         //
         return view('produk', [
-            'title' => 'produk',
+            'title' => 'Produk',
             'fotografers' => Fotografer::all(),
             'kameras' => Kamera::all()
         ]);

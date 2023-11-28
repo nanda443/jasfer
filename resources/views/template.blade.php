@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Jasa Fotografer dan Sewa Kamera</title>
+  <title>{{$title}} | Jasa Fotografer dan Sewa Kamera</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -274,28 +274,28 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="/Beranda">
+        <a class="nav-link {{(request()->segment(1) == 'Beranda')? '' : 'collapsed'}}" href="/Beranda">
           <i class="bi bi-house-fill"></i>
           <span>Beranda</span>
         </a>
       </li><!-- End Beranda Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/Produk">
+        <a class="nav-link {{(request()->segment(1) == 'Produk')? '' : 'collapsed'}}" href="/Produk">
           <i class="bi bi-box-fill"></i>
           <span>Produk</span>
         </a>
       </li><!-- End Produk Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/Kamera">
+        <a class="nav-link {{(request()->segment(1) == 'Kamera')? '' : 'collapsed'}}" href="/Kamera">
           <i class="bi bi-camera-fill"></i>
           <span>Kamera</span>
         </a>
       </li><!-- End Kamera Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/Fotografer">
+        <a class="nav-link {{(request()->segment(1) == 'Fotografer')? '' : 'collapsed'}}" href="/Fotografer">
           <i class="bi bi-image-fill"></i>
           <span>Fotografer</span>
         </a>

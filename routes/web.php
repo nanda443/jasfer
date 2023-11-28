@@ -17,11 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('beranda');
-});
+Route::get('/', [BerandaController::class, 'index']);
 
-Route::get('/Beranda', [BerandaController::class,'index']);
+Route::get('/Beranda', [BerandaController::class, 'index']);
+
 Route::get('/Produk', [ProdukController::class, 'index']);
 
 Route::get('/Kamera', [KameraController::class, 'index']);

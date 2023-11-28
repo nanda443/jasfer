@@ -1,10 +1,7 @@
 @extends('template')
 
 @section('content')
-<div class="pagetitle">
-    <h1>Beranda</h1>
-</div>
-  <!-- End Page Title -->
+
 @endsection
 
 @section('main')
@@ -56,8 +53,8 @@
         </div>
     @endforeach
   </div>
-  
-  
+
+
   <div class="pagetitle mt-3">
       <h1>Kamera</h1>
   </div>
@@ -65,7 +62,7 @@
     @foreach ($kameras as $kamera)
         <div class="col">
             <div class="card h-100">
-                <img src="{{ $kamera->foto }}" class="card-img-top rounded w-75 mx-auto " alt="...">
+                <img src="{{ $kamera->foto }}" class="card-img-top rounded w-100 mx-auto " alt="...">
                 <div class="card-body pb-0">
                     <h5 class="card-title fw-bold pb-0 fs-5">{{ $kamera->nama }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $kamera->provider->nama }}</h6>

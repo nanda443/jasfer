@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="pagetitle mb-0">
-    <h1>Fotografer</h1>
+    <h1>{{$title}}</h1>
 </div>
   <!-- End Page Title -->
 @endsection
 
 @section('main')
 <div class="card h-100">
-    <img src="{{ asset('template/assets/img/fotografer/ade.jpg') }}" class="card-img-top w-75 mx-auto mt-3 rounded-circle " alt="...">
+    <img src="{{$fotografer->foto}}" class="card-img-top w-75 mx-auto mt-3 rounded-circle " alt="...">
     <div class="card-body pb-0">
       <h5 class="card-title fw-bold pb-0 fs-5">{{ $fotografer->nama }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ $fotografer->provider->nama }}</h6>

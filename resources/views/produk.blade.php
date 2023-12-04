@@ -17,7 +17,7 @@
               <div class="card-body pb-0">
                   <h5 class="card-title fw-bold pb-0 fs-5">{{ $fotografer->nama }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{ $fotografer->provider->nama }}</h6>
-                  <p class="card-text mb-0">{{ $fotografer->deskripsi }}</p>
+                  <p class="card-text mb-0">{{ Str::limit($fotografer->deskripsi, 75, '...') }}</p>
                   <p class="card-text"><small class="text-muted"><a
                               href="/Fotografer/{{ $fotografer->id }}">Detail</a></small></p>
               </div>
@@ -28,7 +28,11 @@
               </div>
           </div>
       </div>
+      
   @endforeach
+</div>
+<div class="mt-3">
+    {{ $fotografers->links('vendor.pagination.bootstrap-5') }}
 </div>
 
 
@@ -55,7 +59,11 @@
               </div>
           </div>
       </div>
+      
   @endforeach
+</div>
+<div class="mt-3">
+    {{ $kameras->links('vendor.pagination.bootstrap-5') }}
 </div>
 
 

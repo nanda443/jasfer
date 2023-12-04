@@ -16,8 +16,8 @@ class BerandaController extends Controller
         //
         return view('beranda', [
             'title' => 'Beranda',
-            'fotografers' => Fotografer::all(),
-            'kameras' => Kamera::all()
+            'fotografers' => Fotografer::paginate(9),
+            'kameras' => Kamera::paginate(9)
         ]);
     }
 

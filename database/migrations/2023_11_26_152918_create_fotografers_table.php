@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->foreignId('provider_id');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->integer('harga');
             $table->text('foto');
+            $table->json('foto_karya')->nullable();
             $table->timestamps();
         });
     }

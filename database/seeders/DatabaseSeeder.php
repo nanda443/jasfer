@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Provider::factory(5)->create();
-        Fotografer::factory(15)->create();
-        Kamera::factory(15)->create();
+        Fotografer::factory(50)->create();
+        Kamera::factory(36)->create();
     }
 }

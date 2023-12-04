@@ -15,7 +15,7 @@ class FotograferController extends Controller
         //
         return view('fotografer', [
             'title' => 'Fotografer',
-            'fotografers' => Fotografer::all()
+            'fotografers' => Fotografer::paginate(9)
         ]);
     }
 

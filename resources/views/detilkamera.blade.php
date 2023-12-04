@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle mb-0">
-        <h1>{{$title}}</h1>
+        <h1>{{ $title }}</h1>
     </div>
 @endsection
 

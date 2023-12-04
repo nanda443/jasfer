@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle mb-0">
-        <h1>{{$title}}</h1>
+        <h1>{{ $title }}</h1>
     </div>
 @endsection
 
@@ -15,7 +15,7 @@
                     <div class="card-body pb-0">
                         <h5 class="card-title fw-bold pb-0 fs-5">{{ $kamera->nama }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $kamera->provider->nama }}</h6>
-                        <p class="card-text mb-0">{{ $kamera->deskripsi }}</p>
+                        <p class="card-text mb-0">{{ Str::limit($kamera->spesifikasi, 75, '...') }}</p>
                         <p class="card-text"><small class="text-muted"><a
                                     href="/Kamera/{{ $kamera->id }}">Detail</a></small>
                         </p>
@@ -28,5 +28,8 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="mt-3">
+        {{ $kameras->links('vendor.pagination.bootstrap-5') }}
     </div>
 @endsection

@@ -15,7 +15,7 @@ class KameraController extends Controller
         //
         return view('kamera', [
             'title' => 'Kamera',
-            'kameras' => Kamera::all()
+            'kameras' => Kamera::paginate(9)
         ]);
     }
 

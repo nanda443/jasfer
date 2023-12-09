@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\FotograferController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KameraController;
 use App\Http\Controllers\ProdukController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\FotograferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,10 @@ Route::get('Kamera/{kamera}', [KameraController::class, 'show']);
 Route::get('/Fotografer', [FotograferController::class, 'index']);
 
 Route::get('Fotografer/{fotografer}', [FotograferController::class, 'show']);
+
+Route::get('/Login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/Login', [LoginController::class, 'authenticate']);
+Route::post('/Logout', [LoginController::class, 'logout']);
+
+Route::get('/Register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/Register', [RegisterController::class, 'store']);

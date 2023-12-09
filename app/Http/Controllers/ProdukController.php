@@ -14,7 +14,7 @@ class ProdukController extends Controller
     public function index()
     {
         //
-        return view('produk', [
+        return view('user.produk', [
             'title' => 'Produk',
             'fotografers' => Fotografer::paginate(9),
             'kameras' => Kamera::paginate(9)

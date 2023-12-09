@@ -13,7 +13,7 @@ class FotograferController extends Controller
     public function index()
     {
         //
-        return view('fotografer', [
+        return view('user.fotografer', [
             'title' => 'Fotografer',
             'fotografers' => Fotografer::paginate(9)
         ]);
@@ -41,7 +41,7 @@ class FotograferController extends Controller
     public function show(Fotografer $fotografer)
     {
         //
-        return view('detilfotografer', [
+        return view('user.detilfotografer', [
             'title' => 'Detail Fotografer',
             'fotografer' => $fotografer
         ]);

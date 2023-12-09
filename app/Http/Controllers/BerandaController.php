@@ -14,7 +14,7 @@ class BerandaController extends Controller
     public function index()
     {
         //
-        return view('beranda', [
+        return view('user.beranda', [
             'title' => 'Beranda',
             'fotografers' => Fotografer::paginate(9),
             'kameras' => Kamera::paginate(9)

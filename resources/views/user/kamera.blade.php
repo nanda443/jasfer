@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 @section('content')
     <div class="pagetitle mb-0">

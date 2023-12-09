@@ -13,7 +13,7 @@ class KameraController extends Controller
     public function index()
     {
         //
-        return view('kamera', [
+        return view('user.kamera', [
             'title' => 'Kamera',
             'kameras' => Kamera::paginate(9)
         ]);
@@ -42,7 +42,7 @@ class KameraController extends Controller
     public function show(Kamera $kamera)
     {
         //
-        return view('detilkamera', [
+        return view('user.detilkamera', [
             'title' => 'Detail Kamera',
             'kamera' => $kamera
         ]);

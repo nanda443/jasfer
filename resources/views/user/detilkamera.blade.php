@@ -47,7 +47,8 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex">
-                    <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $kamera->harga }}/hari</p>
+                    <p class="card-text text-danger fw-bolder ms-auto ">Rp.
+                        {{ number_format($kamera->harga, 0, ',', '.') }}/hari</p>
                 </div>
                 <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
                     <a href="" class="btn btn-light border-primary px-1 "><i

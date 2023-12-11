@@ -1,4 +1,4 @@
 deployment:
 tasks:
-  - export DEPLOYPATH=/home/jasx3997/repo/git
+  - export DEPLOYPATH=/home/jasx3997/repositories/jasfer
   - /bin/cp -r * $DEPLOYPATH

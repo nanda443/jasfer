@@ -13,7 +13,8 @@
         @foreach ($fotografers as $fotografer)
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{ $fotografer->foto }}" class="shadow card-img-top w-75 mx-auto mt-3 rounded-circle " alt="...">
+                    <img src="{{ $fotografer->foto }}" class="shadow card-img-top w-75 mx-auto mt-3 rounded-circle "
+                        alt="...">
                     <div class="card-body pb-0">
                         <h5 class="card-title fw-bold pb-0 fs-5">{{ $fotografer->nama }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $fotografer->provider->nama }}</h6>
@@ -23,7 +24,8 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-flex">
-                            <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $fotografer->harga }}/hari</p>
+                            <p class="card-text text-danger fw-bolder ms-auto ">Rp.
+                                {{ number_format($fotografer->harga, 0, ',', '.') }}/hari</p>
                         </div>
                         <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
                             <form action="{{ route('keranjang.tambah.fotografer') }}" method="post">

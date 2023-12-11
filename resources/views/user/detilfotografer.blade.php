@@ -65,7 +65,8 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex">
-                    <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $fotografer->harga }}/hari</p>
+                    <p class="card-text text-danger fw-bolder ms-auto ">Rp.
+                        {{ number_format($fotografer->harga, 0, ',', '.') }}/hari</p>
                 </div>
                 <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
                     <form action="{{ route('keranjang.tambah.fotografer') }}" method="post">

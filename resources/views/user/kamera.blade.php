@@ -31,7 +31,7 @@
                                 <button type="submit" class="btn btn-light border-primary px-1"><i
                                         class="bi bi-cart-plus m-2"></i></button>
                             </form>
-                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>Pesan sekarang</span></a>
                         </div>
                     </div>
                 </div>

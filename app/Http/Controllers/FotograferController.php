@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fotografer;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class FotograferController extends Controller
@@ -13,9 +14,10 @@ class FotograferController extends Controller
     public function index()
     {
         //
-        return view('fotografer', [
+        return view('user.fotografer', [
             'title' => 'Fotografer',
-            'fotografers' => Fotografer::paginate(9)
+            'fotografers' => Fotografer::paginate(9),
+            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -41,9 +43,10 @@ class FotograferController extends Controller
     public function show(Fotografer $fotografer)
     {
         //
-        return view('detilfotografer', [
+        return view('user.detilfotografer', [
             'title' => 'Detail Fotografer',
-            'fotografer' => $fotografer
+            'fotografer' => $fotografer,
+            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 

@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 @section('content')
     <div class="pagetitle mb-0">
@@ -21,9 +21,18 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text text-danger fw-bolder float-end">Rp. {{ $kamera->harga }}/hari</p>
-                        <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan
-                                Sekarang</span></button>
+                        <div class="d-flex">
+                            <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $kamera->harga }}/hari</p>
+                        </div>
+                        <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
+                            <form action="{{ route('keranjang.tambah.kamera') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="kamera_id" value="{{ $kamera->id }}">
+                                <button type="submit" class="btn btn-light border-primary px-1"><i
+                                        class="bi bi-cart-plus m-2"></i></button>
+                            </form>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                        </div>
                     </div>
                 </div>
             </div>

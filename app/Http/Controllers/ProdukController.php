@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kamera;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Fotografer;
 
@@ -17,7 +18,8 @@ class ProdukController extends Controller
         return view('user.produk', [
             'title' => 'Produk',
             'fotografers' => Fotografer::paginate(9),
-            'kameras' => Kamera::paginate(9)
+            'kameras' => Kamera::paginate(9),
+            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 

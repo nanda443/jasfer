@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('content')
-    <div class="pagetitle">
+    <div class="pagetitle mb-0">
         <h1>{{ $title }}/Fotografer</h1>
     </div>
     <!-- End Page Title -->
@@ -22,9 +22,18 @@
                                     href="/Fotografer/{{ $fotografer->id }}">Detail</a></small></p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text text-danger fw-bolder float-end">Rp. {{ $fotografer->harga }}/hari</p>
-                        <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan
-                                Sekarang</span></button>
+                        <div class="d-flex">
+                            <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $fotografer->harga }}/hari</p>
+                        </div>
+                        <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
+                            <form action="{{ route('keranjang.tambah.fotografer') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="fotografer_id" value="{{ $fotografer->id }}">
+                                <button type="submit" class="btn btn-light border-primary px-1"><i
+                                        class="bi bi-cart-plus m-2"></i></button>
+                            </form>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,8 +44,8 @@
     </div>
 
 
-    <div class="pagetitle mt-3">
-        <h1>Produk/Kamera</h1>
+    <div class="pagetitle mt-2 mb-0 ">
+        <h1>{{ $title }}/Kamera</h1>
     </div>
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($kameras as $kamera)
@@ -46,15 +55,24 @@
                     <div class="card-body pb-0">
                         <h5 class="card-title fw-bold pb-0 fs-5">{{ $kamera->nama }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $kamera->provider->nama }}</h6>
-                        <p class="card-text mb-0">{{ $kamera->deskripsi }}</p>
+                        <p class="card-text mb-0">{{ Str::limit($kamera->spesifikasi, 75, '...') }}</p>
                         <p class="card-text"><small class="text-muted"><a
                                     href="/Kamera/{{ $kamera->id }}">Detail</a></small>
                         </p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text text-danger fw-bolder float-end">Rp. {{ $kamera->harga }}/hari</p>
-                        <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan
-                                Sekarang</span></button>
+                        <div class="d-flex">
+                            <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $kamera->harga }}/hari</p>
+                        </div>
+                        <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
+                            <form action="{{ route('keranjang.tambah.kamera') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="kamera_id" value="{{ $kamera->id }}">
+                                <button type="submit" class="btn btn-light border-primary px-1"><i
+                                        class="bi bi-cart-plus m-2"></i></button>
+                            </form>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                        </div>
                     </div>
                 </div>
             </div>

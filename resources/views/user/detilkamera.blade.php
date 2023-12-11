@@ -45,10 +45,15 @@
                     @endforeach
                 </div>
             </div>
-            <div class="card-footer border border-top bg-light">
-                <p class="card-text text-danger fw-bolder float-end">Rp. {{ $kamera->harga }}/hari</p>
-                <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan
-                        Sekarang</span></button>
+            <div class="card-footer">
+                <div class="d-flex">
+                    <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $kamera->harga }}/hari</p>
+                </div>
+                <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
+                    <a href="" class="btn btn-light border-primary px-1 "><i
+                            class="bi bi-cart-check m-2"></i><span></span></a>
+                    <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                </div>
             </div>
         </div>
     </div>

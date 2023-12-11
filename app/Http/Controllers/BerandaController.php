@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fotografer;
 use App\Models\Kamera;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 
 class BerandaController extends Controller
 {
@@ -14,10 +15,12 @@ class BerandaController extends Controller
     public function index()
     {
         //
+        // $userCart = Cart::where('user_id', auth()->user()->id)->latest()->get();
         return view('user.beranda', [
             'title' => 'Beranda',
             'fotografers' => Fotografer::paginate(9),
-            'kameras' => Kamera::paginate(9)
+            'kameras' => Kamera::paginate(9),
+            // 'userCart' => $userCart
         ]);
     }
 

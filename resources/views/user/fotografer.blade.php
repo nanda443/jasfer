@@ -22,10 +22,20 @@
                                     href="/Fotografer/{{ $fotografer->id }}">Detail</a></small></p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text text-danger fw-bolder float-end">Rp. {{ $fotografer->harga }}/hari</p>
-                        <button type="button" class="btn btn-primary w-100"><i class="bi bi-cart-check m-2"></i><span>pesan
-                                Sekarang</span></button>
+                        <div class="d-flex">
+                            <p class="card-text text-danger fw-bolder ms-auto ">Rp. {{ $fotografer->harga }}/hari</p>
+                        </div>
+                        <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
+                            <form action="{{ route('keranjang.tambah.fotografer') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="fotografer_id" value="{{ $fotografer->id }}">
+                                <button type="submit" class="btn btn-light border-primary px-1"><i
+                                        class="bi bi-cart-plus m-2"></i></button>
+                            </form>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                        </div>
                     </div>
+
                 </div>
             </div>
         @endforeach

@@ -10,7 +10,9 @@ class LoginController extends Controller
     //
     public function index()
     {
-        return view('login.index');
+        return view('login.index', [
+            'title' => 'Login'
+        ]);
     }
 
     public function authenticate(Request $request)
@@ -26,7 +28,7 @@ class LoginController extends Controller
             return redirect()->intended('/Beranda');
         }
 
-        return back()->with('loginError', 'Login Gagal, email atau password salah!');
+        return back()->with('error', 'Login Gagal, email atau password salah!');
     }
 
     public function logout(Request $request)
@@ -37,7 +39,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

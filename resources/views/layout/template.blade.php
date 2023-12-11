@@ -42,7 +42,6 @@
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -69,78 +68,38 @@
                         <i class="bi bi-search"></i>
                     </a>
                 </li><!-- End Search Icon-->
-
                 @auth
                     <li class="nav-item dropdown">
-
-                        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-bell"></i>
-                            <span class="badge bg-primary badge-number">4</span>
+                        <a class="nav-link nav-icon" href="" data-bs-toggle="dropdown">
+                            <i class="bi bi-cart-check"></i>
+                            <span class="badge bg-primary badge-number">{{ count($userCart) }}</span>
                         </a><!-- End Notification Icon -->
-
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages ">
                             <li class="dropdown-header">
-                                You have 4 new notifications
-                                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                                {{ count($userCart) }} barang di keranjang
+                                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Lihat
+                                        semua</span></a>
                             </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li class="notification-item">
-                                <i class="bi bi-exclamation-circle text-warning"></i>
-                                <div>
-                                    <h4>Lorem Ipsum</h4>
-                                    <p>Quae dolorem earum veritatis oditseno</p>
-                                    <p>30 min. ago</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li class="notification-item">
-                                <i class="bi bi-x-circle text-danger"></i>
-                                <div>
-                                    <h4>Atque rerum nesciunt</h4>
-                                    <p>Quae dolorem earum veritatis oditseno</p>
-                                    <p>1 hr. ago</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li class="notification-item">
-                                <i class="bi bi-check-circle text-success"></i>
-                                <div>
-                                    <h4>Sit rerum fuga</h4>
-                                    <p>Quae dolorem earum veritatis oditseno</p>
-                                    <p>2 hrs. ago</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li class="notification-item">
-                                <i class="bi bi-info-circle text-primary"></i>
-                                <div>
-                                    <h4>Dicta reprehenderit</h4>
-                                    <p>Quae dolorem earum veritatis oditseno</p>
-                                    <p>4 hrs. ago</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li class="dropdown-footer">
-                                <a href="#">Show all notifications</a>
-                            </li>
+                            @if (isset($userCart))
+                                @foreach ($userCart->slice(0, 5) as $item)
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="message-item">
+                                        <a href="">
+                                            <img src="{{ asset('template/assets/img/messages-1.jpg') }}" alt=""
+                                                class="rounded-circle">
+                                            <div>
+                                                <h4>{{ $item->fotografer ? $item->fotografer->nama : $item->kamera->nama }}
+                                                </h4>
+                                                <p class="text-danger">Rp.
+                                                    {{ $item->fotografer ? $item->fotografer->harga : $item->kamera->harga }}/hari
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            @endif
 
                         </ul><!-- End Notification Dropdown Items -->
 
@@ -265,27 +224,19 @@
                             <li>
                                 <form action="/Logout" method="POST">
                                     @csrf
-                                    <button type="submit" class="dropdown-item d-flex align-items-center">
-                                        <i class="bi bi-box-arrow-right"></i>Logout</button>
+                                    <button type="submit" class="dropdown-item d-flex align-items-center"><i
+                                            class="bi bi-box-arrow-right"></i>Logout</button>
                                 </form>
                             </li>
 
                         </ul><!-- End Profile Dropdown Items -->
                     </li><!-- End Profile Nav -->
                 @else
-                    {{-- <li class="nav-item pe-3 ">
-                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/Login">
-                            <i class="bi bi-box-arrow-right m-2 "></i><span class="d-none d-md-block">LOGIN</span>
-                        </a><!-- End Profile Iamge Icon -->
-                    </li><!-- End Profile Nav --> --}}
                     <div class="btn-group me-3 " role="group" aria-label="Basic example">
                         <a href="/Login" class="btn btn-primary px-3 d-block  fw-bold ">
-                            <i class="bi bi-box-arrow-right pe-2 "></i>Login</a>
+                            <i class="bi bi-box-arrow-in-right pe-1"></i>Login</a>
                     </div>
                 @endauth
-
-
-
             </ul>
         </nav><!-- End Icons Navigation -->
 
@@ -378,6 +329,8 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('template/assets/js/main.js') }}"></script>
+
+    @include('sweetalert::alert')
 
 </body>
 

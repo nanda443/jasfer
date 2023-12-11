@@ -1,0 +1,4 @@
+deployment:
+tasks:
+  - export DEPLOYPATH=/home/jasx3997/repo/git
+  - /bin/cp -r * $DEPLOYPATH

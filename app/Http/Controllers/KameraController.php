@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kamera;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class KameraController extends Controller
@@ -15,7 +16,8 @@ class KameraController extends Controller
         //
         return view('user.kamera', [
             'title' => 'Kamera',
-            'kameras' => Kamera::paginate(9)
+            'kameras' => Kamera::paginate(9),
+            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -44,7 +46,8 @@ class KameraController extends Controller
         //
         return view('user.detilkamera', [
             'title' => 'Detail Kamera',
-            'kamera' => $kamera
+            'kamera' => $kamera,
+            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 

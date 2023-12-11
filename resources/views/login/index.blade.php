@@ -2,21 +2,12 @@
 
 @section('auth')
     <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-        @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show text-center " role="alert">
-                <i class="bi bi-check-circle me-1"></i>
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        @if (session()->has('loginError'))
-            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                <i class="bi bi-check-circle me-1"></i>
-                {{ session('loginError') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        <div class="d-flex justify-content-center py-4">
+            <a href="/" class="logo d-flex align-items-center w-auto">
+                <img src="{{ asset('template/assets/img/logo1.png') }}" alt="">
+                <span class="d-none d-lg-block">JasFer</span>
+            </a>
+        </div>
         <div class="card mb-3">
             <div class="card-body">
 

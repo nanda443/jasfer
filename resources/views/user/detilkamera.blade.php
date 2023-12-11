@@ -52,7 +52,7 @@
                 <div class="d-flex flex-row flex-nowrap accordion justify-content-between align-content-center ">
                     <a href="" class="btn btn-light border-primary px-1 "><i
                             class="bi bi-cart-check m-2"></i><span></span></a>
-                    <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                    <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>Pesan sekarang</span></a>
                 </div>
             </div>
         </div>

@@ -35,7 +35,7 @@
         @foreach ($fotografers as $fotografer)
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{ $fotografer->foto }}" class="card-img-top w-75 mx-auto mt-3 rounded-circle "
+                    <img src="{{ $fotografer->foto }}" class="shadow card-img-top w-75 mx-auto mt-3 rounded-circle "
                         alt="...">
                     <div class="card-body pb-0">
                         <h5 class="card-title fw-bold pb-0 fs-5">{{ $fotografer->nama }}</h5>
@@ -55,7 +55,7 @@
                                 <button type="submit" class="btn btn-light border-primary px-1"><i
                                         class="bi bi-cart-plus m-2"></i></button>
                             </form>
-                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>Pesan sekarang</span></a>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                                 <button type="submit" class="btn btn-light border-primary px-1"><i
                                         class="bi bi-cart-plus m-2"></i></button>
                             </form>
-                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>pesan Sekarang</span></a>
+                            <a href="" class="btn btn-primary flex-fill px-1 ms-1  "><span>Pesan sekarang</span></a>
                         </div>
                     </div>
                 </div>

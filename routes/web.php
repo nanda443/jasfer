@@ -34,6 +34,11 @@ Route::get('/Fotografer', [FotograferController::class, 'index']);
 
 Route::get('Fotografer/{fotografer}', [FotograferController::class, 'show']);
 
+Route::get('/Team', function(){
+    return view('layout.team',[
+        'title' => 'Tentang Kami'
+    ]);
+});
 Route::get('/Login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/Login', [LoginController::class, 'authenticate']);
 Route::post('/Logout', [LoginController::class, 'logout']);

@@ -285,7 +285,7 @@
             </li><!-- End Kerja Sama Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="/Team">
                     <i class="bi bi-people-fill"></i>
                     <span>Tentang Kami</span>
                 </a>

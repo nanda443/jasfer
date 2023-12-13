@@ -12,8 +12,8 @@
             <div class="card-body">
 
                 <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Login ke akun Anda</h5>
+                    <p class="text-center small">Masukkan email dan password untuk login</p>
                 </div>
 
                 <form action="/Login" method="POST" class="row g-3" novalidate>
@@ -37,12 +37,15 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="col-12">
+                        <p class="small mb-0"><a href="{{ route('reset-password') }}">Lupa Password?</a></p>
+                    </div>
 
                     <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <div class="col-12 text-center ">
-                        <p class="small mb-0">Don't have account? <a href="/Register">Create an account</a></p>
+                        <p class="small mb-0">Belum punya akun? <a href="/Register">Buat akun</a></p>
                     </div>
                 </form>
 

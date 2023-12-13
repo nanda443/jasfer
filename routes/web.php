@@ -34,14 +34,19 @@ Route::get('/Fotografer', [FotograferController::class, 'index']);
 
 Route::get('Fotografer/{fotografer}', [FotograferController::class, 'show']);
 
-Route::get('/Team', function(){
-    return view('layout.team',[
+Route::get('/Team', function () {
+    return view('layout.team', [
         'title' => 'Tentang Kami'
     ]);
 });
 Route::get('/Login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/Login', [LoginController::class, 'authenticate']);
 Route::post('/Logout', [LoginController::class, 'logout']);
+Route::get('/email', function () {
+    return view('login.email', [
+        'title' => 'Reset Password'
+    ]);
+})->name('reset-password');
 
 Route::get('/Register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/Register', [RegisterController::class, 'store']);

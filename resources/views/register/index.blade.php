@@ -15,14 +15,14 @@
             <div class="card-body">
 
                 <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Buat Akun</h5>
+                    <p class="text-center small">Masukkan data diri untuk membuat akun</p>
                 </div>
 
                 <form action="/Register" method="POST" class="row g-3" novalidate>
                     @csrf
                     <div class="col-12">
-                        <label for="yourName" class="form-label">Your Name</label>
+                        <label for="yourName" class="form-label">Nama Pengguna</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             id="yourName" required value="{{ old('name') }}">
                         @error('name')
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="yourEmail" class="form-label">Your Email</label>
+                        <label for="yourEmail" class="form-label">Email</label>
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="yourEmail" required value="{{ old('email') }}">
                         @error('email')
@@ -49,10 +49,10 @@
                     </div>
 
                     <div class="col-12">
-                        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                        <button class="btn btn-primary w-100" type="submit">Buat Akun</button>
                     </div>
                     <div class="col-12 text-center ">
-                        <p class="small mb-0">Already have an account? <a href="/Login">Login</a></p>
+                        <p class="small mb-0">Sudah punya akun? <a href="/Login">Login</a></p>
                     </div>
                 </form>
             </div>

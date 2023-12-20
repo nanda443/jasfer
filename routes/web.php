@@ -28,11 +28,11 @@ Route::get('/Produk', [ProdukController::class, 'index']);
 
 Route::get('/Kamera', [KameraController::class, 'index']);
 
-Route::get('Kamera/{kamera}', [KameraController::class, 'show']);
+Route::get('Kamera/{kamera}', [KameraController::class, 'show'])->name('detil-kamera');
 
 Route::get('/Fotografer', [FotograferController::class, 'index']);
 
-Route::get('Fotografer/{fotografer}', [FotograferController::class, 'show']);
+Route::get('Fotografer/{fotografer}', [FotograferController::class, 'show'])->name('detil-fotografer');
 
 Route::get('/Team', function () {
     return view('layout.team', [
@@ -51,6 +51,11 @@ Route::get('/email', function () {
 Route::get('/Register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/Register', [RegisterController::class, 'store']);
 
-//route untuk menambahkan fotografer
+//route untuk menambahkan dan menghapus fotografer ke keranjang
 Route::post('/tambah-fotografer', [CartController::class, 'tambahFotografer'])->name('keranjang.tambah.fotografer')->middleware('auth');
+
+//route untuk menambahkan dan menghapus kamera ke keranjang
 Route::post('/tambah-kamera', [CartController::class, 'tambahKamera'])->name('keranjang.tambah.kamera')->middleware('auth');
+
+//route untuk menghapus produk dari keranjang
+Route::post('/hapus-keranjang', [CartController::class, 'destroy'])->middleware('auth')->name('hapus-keranjang');

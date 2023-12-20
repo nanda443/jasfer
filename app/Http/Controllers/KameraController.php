@@ -16,8 +16,7 @@ class KameraController extends Controller
         //
         return view('user.kamera', [
             'title' => 'Kamera',
-            'kameras' => Kamera::paginate(9),
-            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
+            'kameras' => Kamera::paginate(9)
         ]);
     }
 
@@ -46,8 +45,7 @@ class KameraController extends Controller
         //
         return view('user.detilkamera', [
             'title' => 'Detail Kamera',
-            'kamera' => $kamera,
-            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
+            'kamera' => $kamera
         ]);
     }
 

@@ -8,13 +8,13 @@
     <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner ">
             <div class="carousel-item active">
-                <img src="{{ asset('template/assets/img/4.jpg') }}" class="d-block w-100" alt="...">
+                <img src="https://source.unsplash.com/1000x450/?Photographer" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('template/assets/img/2.jpg') }}" class="d-block w-100" alt="...">
+                <img src="https://source.unsplash.com/1000x450/?Camera" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('template/assets/img/3.jpg') }}" class="d-block w-100" alt="...">
+                <img src="https://source.unsplash.com/1000x450/?Photo" class="d-block w-100" alt="...">
             </div>
         </div>
 
@@ -27,13 +27,13 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="pagetitle mt-3">
+    <div class="pagetitle mt-3 mb-0 ">
         <h1>Fotografer</h1>
     </div>
 
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($fotografers as $fotografer)
-            <div class="col">
+            <div class="col my-2 ">
                 <div class="card h-100">
                     <img src="{{ $fotografer->foto }}" class="shadow card-img-top w-75 mx-auto mt-3 rounded-circle "
                         alt="...">
@@ -42,7 +42,8 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{ $fotografer->provider->nama }}</h6>
                         <p class="card-text mb-0">{{ Str::limit($fotografer->deskripsi, 75, '...') }}</p>
                         <p class="card-text"><small class="text-muted"><a
-                                    href="/Fotografer/{{ $fotografer->id }}">Detail</a></small></p>
+                                    href="{{ route('detil-fotografer', ['fotografer' => $fotografer->id]) }}">Detail</a></small>
+                        </p>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex">
@@ -63,17 +64,13 @@
             </div>
         @endforeach
     </div>
-    <div class="mt-3">
-        {{ $fotografers->links('vendor.pagination.bootstrap-5') }}
-    </div>
 
-
-    <div class="pagetitle mt-3">
+    <div class="pagetitle mt-3 mb-0 ">
         <h1>Kamera</h1>
     </div>
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($kameras as $kamera)
-            <div class="col">
+            <div class="col my-2 ">
                 <div class="card h-100">
                     <img src="{{ $kamera->foto }}" class="card-img-top rounded w-100 mx-auto " alt="...">
                     <div class="card-body pb-0">
@@ -81,7 +78,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{ $kamera->provider->nama }}</h6>
                         <p class="card-text mb-0">{{ Str::limit($kamera->spesifikasi, 75, '...') }}</p>
                         <p class="card-text"><small class="text-muted"><a
-                                    href="/Kamera/{{ $kamera->id }}">Detail</a></small>
+                                    href="{{ route('detil-kamera', ['kamera' => $kamera->id]) }}">Detail</a></small>
                         </p>
                     </div>
                     <div class="card-footer">
@@ -103,7 +100,7 @@
             </div>
         @endforeach
     </div>
-    <div class="mt-3">
+    <div class="my-2">
         {{ $kameras->links('vendor.pagination.bootstrap-5') }}
     </div>
 @endsection

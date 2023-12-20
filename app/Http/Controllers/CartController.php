@@ -14,7 +14,7 @@ class CartController extends Controller
     public function tambahFotografer(Request $request)
     {
         //cek apakah fotografer sudah ada
-        $existingItem = Cart::where(['fotografer_id' => $request->input('fotografer_id')])->first();
+        $existingItem = Cart::where(['fotografer_id' => $request->input('fotografer_id')])->where('user_id', auth()->user()->id)->first();
 
         if ($existingItem) {
             return redirect()->back()->with('info', 'Fotografer sudah ada di keranjang');
@@ -30,7 +30,7 @@ class CartController extends Controller
 
     public function tambahKamera(Request $request)
     {
-        $existingItem = Cart::where(['kamera_id' => $request->input('kamera_id')])->first();
+        $existingItem = Cart::where(['kamera_id' => $request->input('kamera_id')])->where('user_id', auth()->user()->id)->first();
 
         if ($existingItem) {
             return redirect()->back()->with('info', 'Kamera sudah ada di keranjang');
@@ -92,8 +92,13 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cart $cart)
+    public function destroy(Request $request)
     {
         //
+        Cart::destroy([
+            'id' => $request->input('id')
+        ]);
+
+        return redirect()->back()->with('success', 'Produk berhasil dihapus dari keranjang');
     }
 }

@@ -2,7 +2,7 @@
 @extends('layout.template')
 
 @section('content')
-    <div class="pagetitle mb-0">
+    <div class="pagetitle mb-2">
         <h1>{{ $title }}</h1>
     </div>
     <!-- End Page Title -->

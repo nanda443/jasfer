@@ -11,7 +11,7 @@
     {{-- ketikkan kode disini --}}
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($fotografers as $fotografer)
-            <div class="col">
+            <div class="col my-2 ">
                 <div class="card h-100">
                     <img src="{{ $fotografer->foto }}" class="shadow card-img-top w-75 mx-auto mt-3 rounded-circle "
                         alt="...">

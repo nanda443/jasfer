@@ -9,7 +9,7 @@
 @section('main')
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($kameras as $kamera)
-            <div class="col">
+            <div class="col my-2 ">
                 <div class="card h-100">
                     <img src="{{ $kamera->foto }}" class="card-img-top rounded w-100 mx-auto " alt="...">
                     <div class="card-body pb-0">

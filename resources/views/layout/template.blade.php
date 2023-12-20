@@ -74,29 +74,40 @@
                             <i class="bi bi-cart-check"></i>
                             <span class="badge bg-primary badge-number">{{ count($userCart) }}</span>
                         </a><!-- End Notification Icon -->
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages ">
-                            <li class="dropdown-header">
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                            <li class="dropdown-header mx-5 ">
                                 {{ count($userCart) }} barang di keranjang
-                                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Lihat
-                                        semua</span></a>
+
                             </li>
                             @if (isset($userCart))
-                                @foreach ($userCart->slice(0, 5) as $item)
+                                @foreach ($userCart as $item)
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li class="message-item">
-                                        <a href="">
-                                            <img src="{{ asset('template/assets/img/messages-1.jpg') }}" alt=""
-                                                class="rounded-circle">
+                                    <li class="message-item d-flex justify-content-between align-content-center ">
+                                        <a
+                                            href="{{ $item->fotografer ? route('detil-fotografer', ['fotografer' => $item->fotografer->id]) : route('detil-kamera', ['kamera' => $item->kamera->id]) }}">
+                                            <img src="{{ $item->fotografer ? $item->fotografer->foto : $item->kamera->foto }}"
+                                                alt="" class="rounded-circle">
                                             <div>
                                                 <h4>{{ $item->fotografer ? $item->fotografer->nama : $item->kamera->nama }}
                                                 </h4>
+                                                <p class="text-muted">Rp.
+                                                    {{ $item->fotografer ? $item->fotografer->provider->nama : $item->kamera->provider->nama }}
+                                                </p>
                                                 <p class="text-danger">Rp.
                                                     {{ $item->fotografer ? $item->fotografer->harga : $item->kamera->harga }}/hari
                                                 </p>
                                             </div>
                                         </a>
+                                        <form action="{{ route('hapus-keranjang') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $item->id }}">
+                                            <button type="submit" class="btn btn-outline-danger"
+                                                data-confirm-delete="true">
+                                                <i class="bi bi-trash3-fill my-auto"></i>
+                                            </button>
+                                        </form>
                                     </li>
                                 @endforeach
                             @endif
@@ -104,7 +115,6 @@
                         </ul><!-- End Notification Dropdown Items -->
 
                     </li><!-- End Notification Nav -->
-
                     <li class="nav-item dropdown">
 
                         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -278,14 +288,15 @@
             </li><!-- End Fotografer Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->segment(1) == 'Kerja+sama' ? '' : 'collapsed' }}"
+                    href="/Kerja+sama">
                     <i class="bi bi-credit-card-fill"></i>
                     <span>Kerja Sama</span>
                 </a>
             </li><!-- End Kerja Sama Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/Team">
+                <a class="nav-link {{ request()->segment(1) == 'Team' ? '' : 'collapsed' }}" href="/Team">
                     <i class="bi bi-people-fill"></i>
                     <span>Tentang Kami</span>
                 </a>
@@ -298,10 +309,7 @@
         @yield('content')
 
         <section class="section dashboard">
-            <div class="row">
-                @yield('main')
-
-            </div>
+            @yield('main')
         </section>
 
     </main><!-- End #main -->
@@ -311,7 +319,6 @@
         <div class="copyright">
             &copy; Copyright <strong><span>JasFer</span></strong>. All Rights Reserved
         </div>
-
     </footer>
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

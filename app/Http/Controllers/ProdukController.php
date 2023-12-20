@@ -18,8 +18,7 @@ class ProdukController extends Controller
         return view('user.produk', [
             'title' => 'Produk',
             'fotografers' => Fotografer::paginate(9),
-            'kameras' => Kamera::paginate(9),
-            // 'userCart' => Cart::where('user_id', auth()->user()->id)->latest()->get()
+            'kameras' => Kamera::paginate(9)
         ]);
     }
 

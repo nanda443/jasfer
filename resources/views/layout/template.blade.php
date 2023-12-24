@@ -32,6 +32,9 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -188,8 +191,12 @@
 
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                             data-bs-toggle="dropdown">
-                            <img src="{{ asset('template/assets/img/profile-img.jpg') }}" alt="Profile"
-                                class="rounded-circle">
+                            @if (auth()->user()->foto_profil)
+                                <img src="{{ auth()->user()->foto_profil }}" alt="Profile" class="rounded-circle">
+                            @else
+                                <img src="{{ asset('storage/uploads/foto_profil/default-user.png') }}" alt="Profile"
+                                    class="rounded-circle">
+                            @endif
                             <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
                         </a><!-- End Profile Iamge Icon -->
 

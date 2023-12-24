@@ -30,6 +30,15 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Cropper.js CSS -->
+    <link href="/path/to/cropper.css" rel="stylesheet">
+
+    <!-- Cropper.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" />
+
 </head>
 
 <body>
@@ -64,7 +73,12 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('template/assets/js/main.js') }}"></script>
 
+    <!-- Cropper.js CSS -->
+    <script src="/path/to/cropper.js"></script>
+    <script src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
     @include('sweetalert::alert')
+
+    @yield('scripts')
 
 </body>
 

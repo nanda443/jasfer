@@ -47,6 +47,14 @@
                     <div class="col-12 text-center ">
                         <p class="small mb-0">Belum punya akun? <a href="/Register">Buat akun</a></p>
                     </div>
+                    <div class="col-12 text-center ">
+                        <p class="small mb-0">Atau masuk dengan</p>
+                    </div>
+                    <div class="col-12 text-center ">
+                        <a class="btn btn-primary" href="{{ route('redirect') }}">
+                            <i class="bi bi-google"></i>
+                        </a>
+                    </div>
                 </form>
 
             </div>

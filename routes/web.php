@@ -8,6 +8,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FotograferController;
+use App\Http\Controllers\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,18 @@ Route::post('/tambah-kamera', [CartController::class, 'tambahKamera'])->name('ke
 
 //route untuk menghapus produk dari keranjang
 Route::post('/hapus-keranjang', [CartController::class, 'destroy'])->middleware('auth')->name('hapus-keranjang');
+
+// Untuk redirect ke Google
+Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
+    ->middleware(['guest'])
+    ->name('redirect');
+
+// Untuk callback dari Google
+Route::get('login/google/callback', [SocialiteController::class, 'callback'])
+    ->middleware(['guest'])
+    ->name('callback');
+
+// Untuk logout
+Route::post('logout', [SocialiteController::class, 'logout'])
+    ->middleware(['auth'])
+    ->name('logout');

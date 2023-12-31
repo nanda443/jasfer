@@ -9,6 +9,7 @@
 
 @section('main')
     {{-- ketikkan kode disini --}}
+    @if ($fotografers->count())
     <div class="row m-0 row-cols-1 row-cols-md-3 g-4">
         @foreach ($fotografers as $fotografer)
             <div class="col my-2 ">
@@ -45,4 +46,8 @@
     <div class="mt-3">
         {{ $fotografers->links('vendor.pagination.bootstrap-5') }}
     </div>
+    @else
+        <p class="text-center fs-4">Fotografer tidak ditemukan</p>
+    @endif
+
 @endsection

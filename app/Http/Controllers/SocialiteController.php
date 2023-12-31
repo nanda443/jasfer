@@ -22,6 +22,15 @@ class SocialiteController extends Controller
         // Ambil user dari database berdasarkan google user id
         $userFromDatabase = User::where('google_id', $userFromGoogle->getId())->first();
 
+        // Ambil user dari database berdasarkan email
+        $userByEmail = User::where('email', $userFromGoogle->getEmail())->first();
+
+        // Cek apakah ada user dengan email yang sama dan bukan login melalui Google
+        if ($userByEmail && !$userFromDatabase) {
+            // Redirect atau berikan pesan kesalahan sesuai kebutuhan
+            return redirect()->route('login')->with('error', 'Akun dengan email ini sudah terdaftar. Silakan login secara manual.');
+        }
+
         // Jika tidak ada user, maka buat user baru
         if (!$userFromDatabase) {
             $newUser = new User([
@@ -38,14 +47,15 @@ class SocialiteController extends Controller
             session()->regenerate();
 
             return redirect('/');
+        } else {
+            // Jika ada user langsung login saja
+            auth('web')->login($userFromDatabase);
+            session()->regenerate();
+
+            return redirect('/');
         }
-
-        // Jika ada user langsung login saja
-        auth('web')->login($userFromDatabase);
-        session()->regenerate();
-
-        return redirect('/');
     }
+
 
     public function logout(Request $request)
     {

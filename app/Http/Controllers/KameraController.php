@@ -11,12 +11,17 @@ class KameraController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if ($request->search) {
+            $kameras = Kamera::search($request->search)->paginate(9);
+        } else {
+            $kameras = Kamera::paginate(9);
+        }
         return view('user.kamera', [
             'title' => 'Kamera',
-            'kameras' => Kamera::paginate(9)
+            'kameras' => $kameras
         ]);
     }
 

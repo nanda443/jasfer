@@ -10,12 +10,17 @@ class FotograferController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if ($request->search) {
+            $fotografers = Fotografer::search($request->search)->paginate(9);
+        } else {
+            $fotografers = Fotografer::paginate(9);
+        }
         return view('user.fotografer', [
             'title' => 'Fotografer',
-            'fotografers' => Fotografer::paginate(9)
+            'fotografers' => $fotografers
         ]);
     }
 

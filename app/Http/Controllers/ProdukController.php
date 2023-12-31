@@ -12,13 +12,20 @@ class ProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if ($request->search) {
+            $fotografers = Fotografer::search($request->search)->paginate(9);
+            $kameras = Kamera::search($request->search)->paginate(9);
+        } else {
+            $fotografers = Fotografer::paginate(9);
+            $kameras = Kamera::paginate(9);
+        }
         return view('user.produk', [
             'title' => 'Produk',
-            'fotografers' => Fotografer::paginate(9),
-            'kameras' => Kamera::paginate(9)
+            'fotografers' => $fotografers,
+            'kameras' => $kameras
         ]);
     }
 

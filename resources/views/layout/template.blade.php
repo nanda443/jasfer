@@ -100,9 +100,13 @@
                                                 <p class="text-muted">Rp.
                                                     {{ $item->fotografer ? $item->fotografer->provider->nama : $item->kamera->provider->nama }}
                                                 </p>
-                                                <p class="text-danger">Rp.
-                                                    {{ $item->fotografer ? $item->fotografer->harga : $item->kamera->harga }}/hari
-                                                </p>
+                                                
+                                                    @if ($item->fotografer != null)
+                                                        <p class="card-text text-danger fw-bolder ms-auto ">@currency($item->fotografer->harga)/Hari</p>
+                                                    @else
+                                                    <p class="card-text text-danger fw-bolder ms-auto ">@currency($item->kamera->harga)/Hari</p>
+                                                    @endif
+                                                
                                             </div>
                                         </a>
                                         <form action="{{ route('hapus-keranjang') }}" method="post">

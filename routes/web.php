@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FotograferController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,5 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
 Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
+
+Route::get('/profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
